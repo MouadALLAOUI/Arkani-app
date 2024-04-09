@@ -1,0 +1,30 @@
+{
+  "name": "Project1",
+  "displayName": "Project1",
+  "description": "I made this app to help other muslim to fully follow the right path",
+  "slug": "arkani-app",
+  "version": "1.0.0",
+  "owner": "Mouad allaoui",
+  "githubUrl": "https://github.com/MouadALLAOUI/Arkani",
+  "orientation": "portrait",
+  "icon": "./src/res/icons/logo/playstore.png",
+  "userInterfaceStyle": "automatic",
+  "splash": {
+    "image": "./src/res/image/splash.png",
+    "resizeMode": "cover",
+    "backgroundColor": "#ffffff"
+  },
+  "plugins": [],
+  "ios": {
+    "supportsTablet": true
+  },
+  "android": {
+    "adaptiveIcon": {
+      "foregroundImage": "./src/res/icons/logo/appstore.png",
+      "backgroundColor": "#ffffff"
+    }
+  },
+  "web": {
+    "favicon": "./src/res/icons/logo/appstore.png"
+  }
+}

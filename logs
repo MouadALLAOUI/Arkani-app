@@ -1,0 +1,14 @@
+# DEV-001
+
+> update Header, Footer, StartInfoNav, +icons, redux, navigation, package.json
+> update readme, logs, license
+
+* Add Header Component
+* Add Footer Component
+* Add StartInfoNav Component
+* Add main Icons and image
+* Add new dependencies (redux, react-navigation, eslint) and some more
+* Configue the redux
+* Configue react navigation
+* Update readme file to project
+* Update License file to project

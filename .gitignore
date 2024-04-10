@@ -69,3 +69,4 @@ yarn-error.log
 gitCommand.txt
 /.vscode
 .eslintrc.json
+*.mp3

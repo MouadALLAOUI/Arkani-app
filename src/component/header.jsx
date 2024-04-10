@@ -1,9 +1,9 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import { useSelector } from "react-redux";
-import { useNavigation } from "@react-navigation/native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Header({ isBackBtn= false, title= "" }) {
+export default function Header({ isBackBtn= false, title= '' }) {
   const theme = useSelector(state => state.theme.themeMode);
   const navigation = useNavigation();
   return (
@@ -16,7 +16,7 @@ export default function Header({ isBackBtn= false, title= "" }) {
       <Text style={{
         ...style.titleTxt ,
         color: theme.onPrimaryColor,
-        textAlign: !isBackBtn ?  "center" : "auto",
+        textAlign: !isBackBtn ?  'center' : 'auto',
       }}>
         {title}
       </Text>
@@ -26,30 +26,30 @@ export default function Header({ isBackBtn= false, title= "" }) {
 
 const style = StyleSheet.create({
   header: {
-    display: "flex",
-    position: "relative",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+    display: 'flex',
+    position: 'relative',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     gap: 50,
     height: 60
   },
   button: {
-    position: "relative",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     height: 60,
     flex: 1,
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
   },
   titleTxt: {
-    position: "relative",
-    display: "flex",
+    position: 'relative',
+    display: 'flex',
     height: 60,
     flex: 6,
     fontSize: 46,
-    fontWeight: "bold",
-    textTransform: "uppercase",
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
   },
 });

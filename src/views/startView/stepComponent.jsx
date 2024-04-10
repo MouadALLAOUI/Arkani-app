@@ -1,5 +1,5 @@
 import { Image, Text, View, StyleSheet } from 'react-native';
-import TestImage from '../../res/image/imagedefault.png';
+import TestImage from '../../assets/image/imagedefault.png';
 import { useSelector } from 'react-redux';
 
 export default function StepComponent({

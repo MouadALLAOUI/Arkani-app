@@ -4,9 +4,9 @@ import Header from '../../component/header';
 import StartInfoNav from '../../component/navigateFooter';
 import COLORS from '../../variant/colors';
 import StepComponent from './stepComponent';
-import QuranImg from '../../res/icons/svg/quran-recitation.svg';
-import GrowingImg from '../../res/icons/svg/growing.svg';
-import ReviewImg from '../../res/icons/svg/customer-review.svg';
+import QuranImg from '../../assets/icons/svg/quran-recitation.svg';
+import GrowingImg from '../../assets/icons/svg/growing.svg';
+import ReviewImg from '../../assets/icons/svg/customer-review.svg';
 
 
 export default function StartView({ navigation }) {

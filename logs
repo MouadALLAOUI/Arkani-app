@@ -1,5 +1,16 @@
 # DEV-001
 
+> update quran ui, add react-native-truck-player, add new component
+
+* Add QuranList ui (show list of all souar)
+* Add QuranSound ui (show the ui to control and hear the soura)
+* Add some other components to quran folder
+* fix some old stuff
+* change redux store and Slices to typeScript format
+* add souar to audio folder in the assets folder
+
+# First-push
+
 > update Header, Footer, StartInfoNav, +icons, redux, navigation, package.json
 > update readme, logs, license
 

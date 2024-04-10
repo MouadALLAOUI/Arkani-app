@@ -1,42 +1,31 @@
-import { useState, useEffect } from 'react';
-import { ActivityIndicator, SafeAreaView, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import COLORS from '../../../variant/colors';
 import Header from '../../../component/header';
 import Footer from '../../../component/footer';
-import { setupPlayer, addTrack } from '../../../../QuranPlayerService';
-import QuranPlayer from './QuranPlayer';
+import Tags from '../../../component/tags';
+import { QuranListData } from '../../../variant/constants';
+import React from 'react';
 
 
-export default function QuranSound({ navigation, route }) {
-  const [isPlayerReady, seIsPlayerReady] = useState(false);
+export default function QuranList({ navigation }) {
 
-  const { trackId } = route.params;
-
-  async function setup() {
-    let isSetup = await setupPlayer();
-    if (isSetup) {
-      await addTrack();
-    }
-    seIsPlayerReady(isSetup);
-  }
-
-  useEffect(() => {
-    setup();
-  }, []);
-
-  if (!isPlayerReady) {
-    return (
-      <SafeAreaView>
-        <ActivityIndicator />
-      </SafeAreaView>
-    );
-  }
+  // eslint-disable-next-line react/display-name
+  const Item = React.memo(({ item }) => {
+    return <Tags key={item.id} text={item.title} num={item.id} onPress={() => navigation.navigate('quranSound', {trackId : parseInt(item.id)} )} />;
+  });
 
   return (
     <View style={styles.startview}>
       <Header isBackBtn={false} title="قران كريم" />
       <View style={{...styles.stepView, backgroundColor: COLORS.white}}>
-        <QuranPlayer trackId={trackId} />
+        <View style={{width: '100%',backgroundColor: '#eee5'}}>
+          <FlatList
+            data={QuranListData}
+            numColumns={1}
+            renderItem={({ item }) => <Item item={item} />}
+            keyExtractor={(item) => item?.id?.toString()}
+          />
+        </View>
       </View>
       <Footer
         homePress={() => navigation.navigate('home')}

@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { StyleSheet, View, Pressable, Text, ScrollView } from "react-native";
-import { useSelector } from "react-redux";
+import { StyleSheet, View, Pressable, Text, ScrollView } from 'react-native';
+import { useSelector } from 'react-redux';
 // import { useNavigation } from "@react-navigation/native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function StartInfoNav({
   onBackPage = () => {},
@@ -78,25 +78,25 @@ export default function StartInfoNav({
 
 const style = StyleSheet.create({
   navigateFooter: {
-    display: "flex",
-    position: "relative",
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%",
-    justifyContent: "space-between",
+    display: 'flex',
+    position: 'relative',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    justifyContent: 'space-between',
     gap: 15,
     height: 65,
     paddingHorizontal: 30,
   },
   progressView: {
-    position: "relative",
+    position: 'relative',
     height: 50,
     borderRadius: 10,
   },
   progressSV: {
-    justifyContent: "center",
-    minWidth: "60%",
-    alignItems: "center",
+    justifyContent: 'center',
+    minWidth: '60%',
+    alignItems: 'center',
     paddingHorizontal: 20
   },
   circleProgress: {
@@ -104,20 +104,20 @@ const style = StyleSheet.create({
     height: 25,
     borderRadius: 100,
     marginEnd: 5,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     borderWidth: 5,
   },
   navigateBtn: {
-    position: "relative",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     width: 50,
     height: 50,
     borderRadius: 100,
   },
   ArrowTxt: {
     fontSize: 56,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 });

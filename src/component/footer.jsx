@@ -1,26 +1,23 @@
 import { StyleSheet, View, Pressable } from 'react-native';
 import { useSelector } from 'react-redux';
-// import { useNavigation } from "@react-navigation/native";
-import QuranIco from '../res/icons/svg/quran.svg';
-import PrayIco from '../res/icons/svg/pray.svg';
-import PrayHandIco from '../res/icons/svg/praying-hand.svg';
-import ProfileIco from '../res/icons/svg/muslim.svg';
+import { useNavigation } from '@react-navigation/native';
+import QuranIco from '../assets/icons/svg/quran.svg';
+import PrayIco from '../assets/icons/svg/pray.svg';
+import PrayHandIco from '../assets/icons/svg/praying-hand.svg';
+import ProfileIco from '../assets/icons/svg/muslim.svg';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Footer({
-  homePress = () => {},
-  quranPress = () => {},
-}) {
+export default function Footer() {
   const theme = useSelector(state => state.theme.themeMode);
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
 
   return (
     <View style={{ ...style.footer, backgroundColor: theme.primaryColor }}>
-      <Pressable style={style.button} onPress={homePress}>
+      <Pressable style={style.button} onPress={() => navigation.navigate('home')}>
         <Icon name="home" size={55} color={theme.onPrimaryColor} />
       </Pressable>
 
-      <Pressable style={style.button} onPress={quranPress}>
+      <Pressable style={style.button} onPress={() => navigation.navigate('quranType')}>
         <QuranIco width={55} height={55} />
       </Pressable>
 

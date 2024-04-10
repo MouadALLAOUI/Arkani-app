@@ -3,10 +3,10 @@ import COLORS from '../../../variant/colors';
 import Header from '../../../component/header';
 import Footer from '../../../component/footer';
 import Card from '../../../component/card';
-import QuranIco from '../../../res/icons/svg/quran.svg';
-import HadithIcon from '../../../res/icons/svg/pray.svg';
-import Do3aaIcon from '../../../res/icons/svg/praying-hand.svg';
-import ArkanIcon from '../../../res/icons/svg/pillar.svg';
+import QuranIco from '../../../assets/icons/svg/quran.svg';
+import HadithIcon from '../../../assets/icons/svg/pray.svg';
+import Do3aaIcon from '../../../assets/icons/svg/praying-hand.svg';
+import ArkanIcon from '../../../assets/icons/svg/pillar.svg';
 
 
 export default function Home({ navigation }) {
@@ -15,7 +15,7 @@ export default function Home({ navigation }) {
       id: 1,
       text: 'قرأن كريم(سمعي)',
       icon: <QuranIco width={100} height={100} />,
-      onPress: () => navigation.navigate('quranS')
+      onPress: () => navigation.navigate('quranQarii')
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ export default function Home({ navigation }) {
       id: 3,
       text: 'قرأن كريم (بصري)',
       icon: <QuranIco width={100} height={100} />,
-      onPress: () => navigation.navigate('quranS')
+      onPress: () => navigation.navigate('quranQarii')
     },
     {
       id: 4,
@@ -55,10 +55,7 @@ export default function Home({ navigation }) {
           keyExtractor={(item) => item.id}
         />
       </View>
-      <Footer
-        homePress={() => navigation.navigate('home')}
-        quranPress={() => navigation.navigate('quranS')}
-      />
+      <Footer/>
     </View>
   );
 }

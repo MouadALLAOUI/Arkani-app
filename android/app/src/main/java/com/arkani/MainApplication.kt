@@ -1,4 +1,4 @@
-package com.project1
+package com.arkani
 
 import android.app.Application
 import com.facebook.react.PackageList

@@ -1,10 +1,10 @@
-import { StyleSheet, Pressable, Text } from "react-native";
-import { useSelector } from "react-redux";
+import { StyleSheet, Pressable, Text } from 'react-native';
+import { useSelector } from 'react-redux';
 // import { useNavigation } from "@react-navigation/native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Card({
-  text= "",
+  text= '',
   icon= null,
   onPress= () => {}
 }) {
@@ -31,22 +31,22 @@ export default function Card({
 
 const style = StyleSheet.create({
   card: {
-    position: "relative",
-    display: "flex",
+    position: 'relative',
+    display: 'flex',
     flex: 1,
     padding: 15,
     margin: 5,
-    justifyContent: "space-between",
-    alignItems: "center",
+    justifyContent: 'space-between',
+    alignItems: 'center',
     borderRadius: 15,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     borderWidth: 3
   },
   text: {
-    position: "relative",
-    display: "flex",
+    position: 'relative',
+    display: 'flex',
     fontSize: 24,
-    fontWeight: "bold",
-    textAlign: "center",
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });

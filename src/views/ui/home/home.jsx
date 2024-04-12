@@ -4,44 +4,43 @@ import Header from '../../../component/header';
 import Footer from '../../../component/footer';
 import Card from '../../../component/card';
 import QuranIco from '../../../assets/icons/svg/quran.svg';
+import QuranReadIco from '../../../assets/icons/svg/quran-recitation.svg';
 import HadithIcon from '../../../assets/icons/svg/pray.svg';
 import Do3aaIcon from '../../../assets/icons/svg/praying-hand.svg';
 import ArkanIcon from '../../../assets/icons/svg/pillar.svg';
+import { HomeCardData } from '../../../variant/constants';
 
 
 export default function Home({ navigation }) {
-  const itemData = [
-    {
-      id: 1,
-      text: 'قرأن كريم(سمعي)',
-      icon: <QuranIco width={100} height={100} />,
-      onPress: () => navigation.navigate('quranQarii')
-    },
-    {
-      id: 2,
-      text: 'حديث شريف',
-      icon: <HadithIcon width={100} height={100} />
-    },
-    {
-      id: 3,
-      text: 'قرأن كريم (بصري)',
-      icon: <QuranIco width={100} height={100} />,
-      onPress: () => navigation.navigate('quranQarii')
-    },
-    {
-      id: 4,
-      text: 'ادعية',
-      icon: <Do3aaIcon width={100} height={100} />
-    },
-    {
-      id: 5,
-      text: 'أركاني',
-      icon: <ArkanIcon width={100} height={100} />
-    },
-  ];
+
+  const whenPress = (props) => {
+    navigation.navigate(props.toUrl, { title : props.title, itemData : props.items});
+  };
+
+  const setIcon = (name) => {
+    switch (name) {
+    case 'quran.svg':
+      return <QuranIco width={100} height={100} />;
+    case 'quran-recitation.svg':
+      return <QuranReadIco width={100} height={100} />;
+    case 'pray.svg':
+      return <HadithIcon width={100} height={100} />;
+    case 'praying-hand.svg':
+      return <Do3aaIcon width={100} height={100} />;
+    case 'pillar.svg':
+      return <ArkanIcon width={100} height={100} />;
+    default:
+      return null;
+    }
+  };
 
   const Item = ({ item }) => {
-    return <Card key={item} text={item.text} icon={item.icon} onPress={item.onPress} />;
+    return <Card
+      key={item.id}
+      text={item.text}
+      icon={setIcon(item.icon)}
+      onPress={() => whenPress(item.onPress)}
+    />;
   };
 
   return (
@@ -49,7 +48,7 @@ export default function Home({ navigation }) {
       <Header isBackBtn={false} title="الرئيسية" />
       <View style={{...styles.stepView, backgroundColor: COLORS.white}}>
         <FlatList
-          data={itemData}
+          data={HomeCardData}
           numColumns={2}
           renderItem={Item}
           keyExtractor={(item) => item.id}

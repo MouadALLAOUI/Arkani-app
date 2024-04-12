@@ -16,7 +16,8 @@ export default function Header({ isBackBtn= false, title= '' }) {
       <Text style={{
         ...style.titleTxt ,
         color: theme.onPrimaryColor,
-        textAlign: !isBackBtn ?  'center' : 'auto',
+        textAlign: !isBackBtn ?  'center' : 'left',
+        flex: !isBackBtn ? 6 : 4,
       }}>
         {title}
       </Text>
@@ -47,9 +48,9 @@ const style = StyleSheet.create({
     position: 'relative',
     display: 'flex',
     height: 60,
-    flex: 6,
     fontSize: 46,
     fontWeight: 'bold',
     textTransform: 'uppercase',
+    
   },
 });

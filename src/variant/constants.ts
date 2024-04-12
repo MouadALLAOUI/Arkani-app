@@ -1,4 +1,18 @@
 import { Track } from 'react-native-track-player';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { View } from 'react-native';
+
+export type RootStackParamList = {
+  startView: undefined;
+  quranList: undefined;
+  navListPage: {
+    title: string;
+    itemData: object;
+  };
+};
+export type AuthScreenProp = StackNavigationProp<RootStackParamList>;
+
+
 
 export const QuranListData: Track[] = [
   {
@@ -573,5 +587,112 @@ export const QuranListData: Track[] = [
     id: 114,
     title: 'an-nas',
     url: require('../assets/audio/alfasy/114-an-nas.mp3')
+  },
+];
+
+export const QuranSouarList: Array<object> = QuranListData.map((item) => ({
+  id: item.id,
+  title: item.title,
+  onPress: {
+    title: item.title,
+    toUrl: 'quranSound',
+    props: { trackId: item.id }
+  }
+}));
+
+export const QuranQariiList: Array<object> = [
+  {
+    id: 1,
+    title: 'العفاسي',
+    onPress: {
+      title: 'العفاسي',
+      toUrl: 'navListPage',
+      items: QuranSouarList
+    }
+  }
+];
+
+export const QuranTypesList: Array<object> = [
+  {
+    id: 1,
+    title: 'صوتي',
+    onPress: {
+      title: 'صوتي',
+      toUrl: 'navListPage',
+      items: QuranQariiList
+    }
+  },
+  {
+    id: 2,
+    title: 'بصري',
+    onPress: {
+      title: 'بصري',
+      toUrl: 'navListPage',
+      items: []
+    }
+  }
+];
+
+type HomeCardItem = {
+  id: number;
+  text: string;
+  icon: string;
+  onPress: {
+    title: string;
+    toUrl: string;
+    items: Array<object> | null;
+  };
+};
+
+export const HomeCardData: HomeCardItem[] = [
+  {
+    id: 1,
+    text: 'قرأن كريم(سمعي)',
+    icon: 'quran.svg',
+    onPress: {
+      title: 'قرأن كريم(سمعي)',
+      toUrl: 'navListPage',
+      items: QuranQariiList
+    }
+  },
+  {
+    id: 2,
+    text: 'قرأن كريم (بصري)',
+    icon: 'quran-recitation.svg',
+    onPress: {
+      title: 'حديث شريف',
+      toUrl: 'navListPage',
+      items: []
+    }
+  },
+  {
+    id: 3,
+    text: 'حديث شريف',
+    icon: 'pray.svg',
+    onPress: {
+      title: 'حديث شريف',
+      toUrl: 'navListPage',
+      items: []
+    }
+  },
+  {
+    id: 4,
+    text: 'ادعية',
+    icon:  'praying-hand.svg',
+    onPress: {
+      title: 'ادعية',
+      toUrl: 'navListPage',
+      items: []
+    }
+  },
+  {
+    id: 5,
+    text: 'أركاني',
+    icon: 'pillar.svg',
+    onPress: {
+      title: 'أركاني',
+      toUrl: 'navListPage',
+      items: []
+    }
   },
 ];

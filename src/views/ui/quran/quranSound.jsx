@@ -34,13 +34,11 @@ export default function QuranSound({ navigation, route }) {
 
   return (
     <View style={styles.startview}>
-      <Header isBackBtn={false} title="قران كريم" />
+      <Header isBackBtn={true} title="قران كريم" />
       <View style={{...styles.stepView, backgroundColor: COLORS.white}}>
         <QuranPlayer trackId={trackId} />
       </View>
-      <Footer
-        homePress={() => navigation.navigate('home')}
-      />
+      <Footer />
     </View>
   );
 }

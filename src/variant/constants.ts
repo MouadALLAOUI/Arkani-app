@@ -1,6 +1,6 @@
 import { Track } from 'react-native-track-player';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { View } from 'react-native';
+import { SHAHADATAN } from './string/ar/arkane/shahadatan';
 
 export type RootStackParamList = {
   startView: undefined;
@@ -11,8 +11,6 @@ export type RootStackParamList = {
   };
 };
 export type AuthScreenProp = StackNavigationProp<RootStackParamList>;
-
-
 
 export const QuranListData: Track[] = [
   {
@@ -644,6 +642,155 @@ type HomeCardItem = {
   };
 };
 
+export const Shahadatan: Array<object> = [
+  {
+    id: 1,
+    title: 'تعريف',
+    data: [
+      {
+        id: 1.1,
+        isTextArray: true,
+        sectionTitle: `${SHAHADATAN.defLghawi.title}`,
+        title: `${SHAHADATAN.defLghawi.title}`,
+        text: SHAHADATAN.defLghawi.meanings,
+        sources: SHAHADATAN.sources.def
+      },
+      {
+        id: 1.2,
+        isTextArray: true,
+        sectionTitle: `${SHAHADATAN.defLghawi.title}`,
+        title: `${SHAHADATAN.defShar3ii.title}`,
+        text: SHAHADATAN.defShar3ii.meanings,
+        sources: SHAHADATAN.sources.def
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: 'الاركان',
+    data: [
+      {
+        id: 2.1,
+        isTextArray: true,
+        sectionTitle: `${SHAHADATAN.arkan.sectionTitle}`,
+        title: `${SHAHADATAN.arkan.title}`,
+        text: SHAHADATAN.arkan.meanings,
+        sources: SHAHADATAN.sources.arkan
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: 'الشروط',
+    data: [
+      {
+        id: 2.1,
+        isTextArray: true,
+        sectionTitle: `${SHAHADATAN.shorout.sectionTitle}`,
+        title: `${SHAHADATAN.shorout.shorouts.al3ilm.title}`,
+        text: SHAHADATAN.shorout.shorouts.al3ilm.data,
+        sources: SHAHADATAN.sources.shorout
+      },
+      {
+        id: 2.2,
+        isTextArray: true,
+        sectionTitle: `${SHAHADATAN.shorout.sectionTitle}`,
+        title: `${SHAHADATAN.shorout.shorouts.alya9in.title}`,
+        text: SHAHADATAN.shorout.shorouts.alya9in.data,
+        sources: SHAHADATAN.sources.shorout
+      },
+      {
+        id: 2.3,
+        isTextArray: true,
+        sectionTitle: `${SHAHADATAN.shorout.sectionTitle}`,
+        title: `${SHAHADATAN.shorout.shorouts.al9oboul.title}`,
+        text: SHAHADATAN.shorout.shorouts.al9oboul.data,
+        sources: SHAHADATAN.sources.shorout
+      },
+      {
+        id: 2.4,
+        isTextArray: true,
+        sectionTitle: `${SHAHADATAN.shorout.sectionTitle}`,
+        title: `${SHAHADATAN.shorout.shorouts.al2in9yad.title}`,
+        text: SHAHADATAN.shorout.shorouts.al2in9yad.data,
+        sources: SHAHADATAN.sources.shorout
+      },
+      {
+        id: 2.5,
+        isTextArray: true,
+        sectionTitle: `${SHAHADATAN.shorout.sectionTitle}`,
+        title: `${SHAHADATAN.shorout.shorouts.alssid9.title}`,
+        text: SHAHADATAN.shorout.shorouts.alssid9.data,
+        sources: SHAHADATAN.sources.shorout
+      },
+      {
+        id: 2.6,
+        isTextArray: true,
+        sectionTitle: `${SHAHADATAN.shorout.sectionTitle}`,
+        title: `${SHAHADATAN.shorout.shorouts.al2ikhlass.title}`,
+        text: SHAHADATAN.shorout.shorouts.al2ikhlass.data,
+        sources: SHAHADATAN.sources.shorout
+      },
+      {
+        id: 2.7,
+        isTextArray: true,
+        sectionTitle: `${SHAHADATAN.shorout.sectionTitle}`,
+        title: `${SHAHADATAN.shorout.shorouts.almahaba.title}`,
+        text: SHAHADATAN.shorout.shorouts.almahaba.data,
+        sources: SHAHADATAN.sources.shorout
+      },
+    ],
+  },
+];
+
+export const FiveArkan: Array<object> = [
+  {
+    id: 1,
+    title: 'الشهادتين',
+    onPress: {
+      title: 'الشهادتين',
+      toUrl: 'sectionLP',
+      items: Shahadatan
+    }
+  },
+  {
+    id: 2,
+    title: 'الصلاة',
+    onPress: {
+      title: 'الصلاة',
+      toUrl: 'sectionLP',
+      items: []
+    }
+  },
+  {
+    id: 3,
+    title: 'الزكاة',
+    onPress: {
+      title: 'الزكاة',
+      toUrl: 'sectionLP',
+      items: []
+    }
+  },
+  {
+    id: 4,
+    title: 'الصوم',
+    onPress: {
+      title: 'الصوم',
+      toUrl: 'sectionLP',
+      items: []
+    }
+  },
+  {
+    id: 5,
+    title: 'الحج',
+    onPress: {
+      title: 'الحج',
+      toUrl: 'sectionLP',
+      items: []
+    }
+  },
+];
+
 export const HomeCardData: HomeCardItem[] = [
   {
     id: 1,
@@ -692,7 +839,7 @@ export const HomeCardData: HomeCardItem[] = [
     onPress: {
       title: 'أركاني',
       toUrl: 'navListPage',
-      items: []
+      items: FiveArkan
     }
   },
 ];

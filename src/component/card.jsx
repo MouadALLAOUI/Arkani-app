@@ -40,7 +40,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 15,
     borderStyle: 'solid',
-    borderWidth: 3
+    borderWidth: 1
   },
   text: {
     position: 'relative',

@@ -1,3 +1,13 @@
+# DEV-003
+
+> update arkani section
+
+* add content to shahadat
+* add out-link component
+* update AndroidManifest.xml file to authorise link with `http` and `https`
+* delete unused components
+* enhace the design
+
 # DEV-002
 
 > enhace code

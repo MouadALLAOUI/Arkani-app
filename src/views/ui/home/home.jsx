@@ -70,10 +70,10 @@ const styles = StyleSheet.create({
     position: 'relative',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     flex: 8,
-    margin: 15,
+    margin: 10,
     borderRadius: 15,
     padding: 20
   },

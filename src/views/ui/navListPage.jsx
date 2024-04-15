@@ -10,7 +10,7 @@ function NavListPage({ route, navigation }) {
   const { title, itemData } = route.params;
 
   const whenPress = (props) => {
-    if (props.toUrl == 'navListPage') {
+    if (props.toUrl == 'navListPage' || props.toUrl == 'sectionLP') {
       navigation.navigate(props.toUrl, { title : props.title, itemData : props.items});
     } else {
       navigation.navigate(props.toUrl, props.props );
@@ -21,12 +21,12 @@ function NavListPage({ route, navigation }) {
   const Item = React.memo(({ item }) => {
     return <Tags key={item.id} text={item.title} num={item.id} onPress={() => whenPress(item.onPress)} />;
   });
-  
+
   return (
     <View style={styles.startview}>
       <Header isBackBtn={true} title={title} />
       <View style={{...styles.stepView, backgroundColor: COLORS.white}}>
-        <View style={{width: '100%',backgroundColor: '#eee5'}}>
+        <View style={{width: '100%'}}>
           {
             !itemData ||
             itemData.length === 0
@@ -61,9 +61,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-start',
     flex: 8,
-    margin: 15,
+    margin: 10,
     borderRadius: 15,
-    padding: 20
+    paddingHorizontal: 10,
+    overflow: 'hidden',
   },
 });
 

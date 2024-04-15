@@ -18,7 +18,7 @@ export default function Tags({
       onPress={onPress}
     >
       <TouchableOpacity style={style.numBox} disabled >
-        <Text style={{ ...style.textNum, color: theme.onPrimaryColor }}>{num}</Text>
+        <Text style={{ ...style.textNum, color: theme.primaryColor }}>{num}</Text>
       </TouchableOpacity>
       <Text style={{ ...style.text, color: theme.onPrimaryColor }}>{text}</Text>
     </Pressable>
@@ -37,7 +37,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 15,
     borderStyle: 'solid',
-    borderWidth: 3
+    borderWidth: 1
   },
   text: {
     position: 'relative',
@@ -53,15 +53,16 @@ const style = StyleSheet.create({
     fontSize: 36,
     fontWeight: 'bold',
     textAlign: 'center',
+    
   },
   numBox: {
     position: 'absolute',
-    backgroundColor: '#F00',
+    backgroundColor: '#FFF',
     borderRadius: 15,
     top: 2,
     right: 0,
-    width: 50,
-    height: 50,
+    width: 55,
+    height: 55,
     transform: [{rotate: '45deg'}],
     display: 'flex',
     fontSize: 24,
@@ -69,5 +70,6 @@ const style = StyleSheet.create({
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1
   },
 });

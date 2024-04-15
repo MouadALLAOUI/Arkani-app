@@ -5,6 +5,7 @@ import StartView from './views/startView/startView';
 import Home from './views/ui/home/home';
 import QuranSound from './views/ui/quran/quranSound';
 import NavListPage from './views/ui/navListPage';
+import SectionListPage from './views/ui/sectionListPage';
 
 export default function NavigationRouters() {
   const Stack = createNativeStackNavigator();
@@ -17,6 +18,7 @@ export default function NavigationRouters() {
         <Stack.Screen name="home" component={Home} />
         <Stack.Screen name="quranSound" component={QuranSound} />
         <Stack.Screen name="navListPage" component={NavListPage} />
+        <Stack.Screen name="sectionLP" component={SectionListPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

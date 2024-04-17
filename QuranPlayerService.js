@@ -1,28 +1,45 @@
 import TrackPlayer, {RepeatMode, Event} from 'react-native-track-player';
 import {QuranListData} from './src/variant/constants';
 
+let isPlayerInitialized = false;
+
 export async function setupPlayer() {
-  let isSetup = false;
+  if (isPlayerInitialized) {
+    return true;
+  }
+
   try {
-    await TrackPlayer.getCurrentTrack();
-    isSetup = true;
-  } catch (error) {
     await TrackPlayer.setupPlayer();
-    isSetup = false;
-  } finally {
-    // eslint-disable-next-line no-unsafe-finally
-    return isSetup;
+    isPlayerInitialized = true;
+    return true;
+  } catch (error) {
+    console.error('Error initializing TrackPlayer:', error);
+    return false;
   }
 }
 
 export async function addTrack() {
-  await TrackPlayer.add(QuranListData);
-  await TrackPlayer.setRepeatMode(RepeatMode.Queue);
+  try {
+    const currentQueue = await TrackPlayer.getQueue();
+    const tracksToAdd = QuranListData.filter(track => !currentQueue.find(queuedTrack => queuedTrack.id === track.id));
+
+    await TrackPlayer.add(tracksToAdd);
+    await TrackPlayer.setRepeatMode(RepeatMode.Queue);
+  } catch (e) {
+    console.error('Error adding track:', e);
+  }
 }
 
 export async function playbackService() {
-  TrackPlayer.addEventListener(Event.RemotePause, () => TrackPlayer.pause());
-  TrackPlayer.addEventListener(Event.RemotePlay, () => TrackPlayer.play());
-  TrackPlayer.addEventListener(Event.RemoteNext, () => TrackPlayer.skipToNext());
-  TrackPlayer.addEventListener(Event.RemotePrevious, () => TrackPlayer.skipToPrevious());
+  const pauseListener = TrackPlayer.addEventListener(Event.RemotePause, () => TrackPlayer.pause());
+  const playListener = TrackPlayer.addEventListener(Event.RemotePlay, () => TrackPlayer.play());
+  const nextListener = TrackPlayer.addEventListener(Event.RemoteNext, () => TrackPlayer.skipToNext());
+  const previousListener = TrackPlayer.addEventListener(Event.RemotePrevious, () => TrackPlayer.skipToPrevious());
+
+  return () => {
+    pauseListener.remove();
+    playListener.remove();
+    nextListener.remove();
+    previousListener.remove();
+  };
 }

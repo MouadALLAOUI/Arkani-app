@@ -2,6 +2,7 @@
 
 > fix quran tracks bug
 
+* update react-native-track-player plugin to latest
 * fix the timing problem
 * fix the selecting problem
 * fix the track name info problem

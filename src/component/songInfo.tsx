@@ -10,7 +10,6 @@ type SongInfoProps = PropsWithChildren<{
 
 function SongInfo ({ track }: SongInfoProps){
   const theme = useAppSelector(state => state.theme.themeMode);
-
   return (
     <View style={{
       ...styles.container,

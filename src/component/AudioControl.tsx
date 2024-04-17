@@ -22,8 +22,8 @@ export default function AudioControl() {
     await TrackPlayer.skipToPrevious();
   };
 
-  const togglePlayback = async (playback: State) => {
-    const  currentTrack = await TrackPlayer.getCurrentTrack();
+  const togglePlayback = async (playback: State | undefined) => {
+    const  currentTrack = await TrackPlayer.getActiveTrack();
 
     if (currentTrack !== null) {
       if (playback === State.Paused || playback === State.Ready) {
@@ -59,8 +59,8 @@ export default function AudioControl() {
       <Pressable onPress={rollBack}>
         <Icon name="backward" size={20} color={theme.primaryColor} />
       </Pressable>
-      <Pressable onPress={() => togglePlayback(playBackState)}>
-        <Icon name={playBackState ===  State.Playing ? 'pause' : 'play'} size={20} color={theme.primaryColor} />
+      <Pressable onPress={() => togglePlayback(playBackState.state)}>
+        <Icon name={playBackState.state ===  State.Playing ? 'pause' : 'play'} size={20} color={theme.primaryColor} />
       </Pressable>
       <Pressable onPress={goForward}>
         <Icon name="forward" size={20} color={theme.primaryColor} />

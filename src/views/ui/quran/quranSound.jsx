@@ -7,27 +7,34 @@ import { setupPlayer, addTrack } from '../../../../QuranPlayerService';
 import QuranPlayer from './QuranPlayer';
 
 
-export default function QuranSound({ navigation, route }) {
-  const [isPlayerReady, seIsPlayerReady] = useState(false);
+export default function QuranSound({ route }) {
+  const [isPlayerReady, setIsPlayerReady] = useState(false);
 
   const { trackId } = route.params;
 
   async function setup() {
-    let isSetup = await setupPlayer();
-    if (isSetup) {
-      await addTrack();
+    try {
+      let isSetup = await setupPlayer();
+      if (isSetup) {
+        await addTrack();
+      }
+      setIsPlayerReady(isSetup);
+    } catch (err) {
+      console.error('Failed to setup player:', err);
     }
-    seIsPlayerReady(isSetup);
   }
 
   useEffect(() => {
     setup();
-  }, []);
+  }, [trackId]);
 
   if (!isPlayerReady) {
     return (
-      <SafeAreaView>
-        <ActivityIndicator />
+      <SafeAreaView style={styles.startview}>
+        <ActivityIndicator
+          size="large"
+          color="#FFF"
+        />
       </SafeAreaView>
     );
   }

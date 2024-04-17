@@ -1,3 +1,14 @@
+# DEV-004
+
+> fix quran tracks bug
+
+* fix the timing problem
+* fix the selecting problem
+* fix the track name info problem
+* fix the setup player problem
+* update id's of track
+* add the artist attribute to the tracks
+
 # DEV-003
 
 > update arkani section
